@@ -34,5 +34,18 @@
         	<script src="webjars/bootstrap/3.3.6/js/bootstrap.min.js"></script>
         	<script src="js/custom.js"></script>
 	    </div>
+	    
+	    <nav class="navbar navbar-dark bg-dark">
+			<!-- Navbar content -->
+		</nav>
+	
+		<nav class="navbar navbar-dark bg-primary">
+			<!-- Navbar content -->
+		</nav>
+	
+		<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+			<!-- Navbar content -->
+		</nav>
+		
 	</body>
 </html>

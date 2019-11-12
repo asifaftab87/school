@@ -9,6 +9,6 @@ public class WelcomeController {
 	@RequestMapping("/welcome")
 	public String welcome() {
 		System.out.println("welcome");
-		return "welcome";
+		return "navigation";
 	}
 }
