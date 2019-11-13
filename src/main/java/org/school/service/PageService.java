@@ -2,8 +2,8 @@ package org.school.service;
 
 import java.util.List;
 
-import org.school.PageRepository;
 import org.school.model.Page;
+import org.school.repository.PageRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.CacheConfig;
 import org.springframework.cache.annotation.Cacheable;
