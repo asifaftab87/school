@@ -1,3 +1,7 @@
+<%@page import="org.school.service.StaticService"%>
+<%@page import="org.school.model.Page"%>
+<%@page import="java.util.List"%>
+
 <nav class="navbar navbar-expand-lg navbar-light bg-dark">
   <a class="navbar-brand text-white" href="#">Home</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,9 +18,10 @@
       <li class="nav-item">
         <a class="nav-link text-white" href="#">Link</a>
       </li>
-      <%
-      	
-      %>
+      
+     <%
+     	StaticService.getAllPage(request);
+     %>
       
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
