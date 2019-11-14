@@ -20,4 +20,9 @@ public class PageService {
 	public List<Page> findAll(){
 		return pageRepository.findAll();
 	}
+	
+	@Cacheable
+	public List<Page> findByParentId(int parentId){
+		return pageRepository.findByParentId(parentId);
+	}
 }

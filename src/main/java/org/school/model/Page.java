@@ -28,6 +28,12 @@ public class Page implements Serializable{
 	@Column(name = "page_code")
 	private String pageCode;
 	
+	@Column(name = "url")
+	private String url;
+	
+	@Column(name = "page_id")
+	private Integer pageId;
+	
 	public Page() {}
 
 	public int getId() {
@@ -60,6 +66,22 @@ public class Page implements Serializable{
 
 	public void setPageCode(String pageCode) {
 		this.pageCode = pageCode;
+	}
+
+	public String getUrl() {
+		return url;
+	}
+
+	public void setUrl(String url) {
+		this.url = url;
+	}
+
+	public Integer getPageId() {
+		return pageId;
+	}
+
+	public void setPageId(Integer pageId) {
+		this.pageId = pageId;
 	}
 	
 }

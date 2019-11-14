@@ -15,12 +15,18 @@ public class StaticService {
 	
 	public static List<Page> getAllPage(HttpServletRequest request){
 		ApplicationContext ac = RequestContextUtils.findWebApplicationContext(request);
-		System.out.println("context: "+ac);
+		
 		PageService ps = ac.getBean(PageService.class);
-		System.out.println("ps: "+ps);
-		System.out.println("ps: "+ps.findAll());
-		return null;
-		//return pageService.findAll();
+		
+		return ps.findAll();
+	}
+	
+	public static List<Page> findByParentId(HttpServletRequest request, int parentId){
+		ApplicationContext ac = RequestContextUtils.findWebApplicationContext(request);
+		
+		PageService ps = ac.getBean(PageService.class);
+		
+		return ps.findByParentId(parentId);
 	}
 
 }
