@@ -1,45 +1,42 @@
 package org.school.service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
+import java.util.HashSet;
 
-import javax.annotation.PostConstruct;
-
+import org.school.model.Role;
 import org.school.model.User;
+import org.school.repository.RoleRepository;
+import org.school.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheConfig;
-import org.springframework.cache.annotation.Cacheable;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
-@Service
-@CacheConfig(cacheNames={"users"})
+@Service("userService")
 public class UserService {
 
-	private List<User> users = new ArrayList<>();
+    private UserRepository userRepository;
+    private RoleRepository roleRepository;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
-    UserService() {}
-
-    @PostConstruct
-    private void fillUsers() {
-       users.add(User.builder().username("user_1").age(20).build());
-       users.add(User.builder().username("user_2").age(76).build());
-       users.add(User.builder().username("user_3").age(54).build());
-       users.add(User.builder().username("user_4").age(30).build());
-    }
-    
-    @Cacheable
-    public List<User> findAll() {
-        simulateSlowService();
-        return this.users;
+    public UserService(UserRepository userRepository,
+                       RoleRepository roleRepository,
+                       BCryptPasswordEncoder bCryptPasswordEncoder) {
+        this.userRepository = userRepository;
+        this.roleRepository = roleRepository;
+        this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    private void simulateSlowService() {
-        try {
-            Thread.sleep(3000L);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
+    public User findUserByEmail(String email) {
+        return userRepository.findByEmail(email);
     }
-    
+
+    public User saveUser(User user) {
+        user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        user.setActive(1);
+        Role userRole = roleRepository.findByRole("ADMIN");
+        user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
+        return userRepository.save(user);
+    }
+
 }

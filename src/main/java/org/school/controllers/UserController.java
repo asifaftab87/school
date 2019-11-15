@@ -22,7 +22,8 @@ public class UserController {
 
     @GetMapping(value = "/all")
     public List<User> getAllUsers() {
-        return userService.findAll();
+    	User user = new User();
+        return null;//userService.findAll();
     }
     
 }

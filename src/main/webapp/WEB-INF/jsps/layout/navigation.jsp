@@ -37,11 +37,11 @@
 					        	<%= parentPage.getPageName() %>
 					        </a>
 				        
-				        	<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+				        	<div class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
 		     				<%
 			     				for(Page childPage : listChildPage){
 			     					%>
-			         					<a class="dropdown-item" href="<%= childPage.getUrl() %>"><%= childPage.getPageName() %></a>
+			         					<a class="dropdown-item text-light bg-dark" href="<%= childPage.getUrl() %>"><%= childPage.getPageName() %></a>
 			         				<%
 			     				}
 		     				%>
