@@ -23,6 +23,9 @@ public class LoginController {
     public ModelAndView login(){
         ModelAndView modelAndView = new ModelAndView();
         modelAndView.setViewName("login");
+        User user = new User();
+        modelAndView.addObject("user", user);
+        System.out.println("login");
         return modelAndView;
     }
 
@@ -33,6 +36,7 @@ public class LoginController {
         User user = new User();
         modelAndView.addObject("user", user);
         modelAndView.setViewName("registration");
+        System.out.println("----------------------------------------  registration ---------------------------------------- ");
         return modelAndView;
     }
 

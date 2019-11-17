@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
+<%@ taglib uri="http://www.springframework.org/tags" prefix="spring"%>
 <html>
 
 	<head>
@@ -11,7 +12,7 @@
 	</head>
 	
 	<body>
-		<form action="/registration" method="get">
+		<form action="registration" method="get">
 		    <button class="btn btn-md btn-warning btn-block" type="Submit">Go To Registration Page</button>
 		</form>
 		
@@ -24,10 +25,11 @@
 		        <input type="text" id="email" name="email" placeholder="Email" class="form-control"/> <br/>
 		        <input type="password" placeholder="Password" id="password" name="password" class="form-control"/> <br/>
 		
-		        <div align="center" if="param.error">
+		        <div align="center">
 		        	<p style="font-size: 20; color: #FF1C19;">Email or Password invalid, please verify</p>
 		        </div>
 		        <button class="btn btn-lg btn-primary btn-block" name="Submit" value="Login" type="Submit">Login</button>
+		 
 		    </form>
 		</div>
 	</body>

@@ -13,58 +13,54 @@
 	</head>
 	<body>
 	
-		<form action="/" method="get">
+		<form:form action="/" method="get">
 		    <button class="btn btn-md btn-warning btn-block" type="Submit">Go To Login Page</button>
-		</form>
+		</form:form>
 	
 		<div class="container">
 		    <div class="row">
 		        <div class="col-md-6 col-md-offset-3">
-		            <form autocomplete="off" action="#" action="/registration" modelAttribute="user" method="post" class="form-horizontal" role="form">
+		            <form:form autocomplete="off" action="/registration" modelAttribute="user" method="post" class="form-horizontal" role="form">
 		                <h2>Registration Form</h2>
+		               
 		                <div class="form-group">
 		                    <div class="col-sm-9">
-		                        <label th:if="${#fields.hasErrors('name')}" th:errors="*{name}"
-		                               class="validation-message"></label>
-		                        <input type="text" th:field="*{name}" placeholder="Name"
-		                               class="form-control"/>
+		                        <form:errors path="name" class="validation-message" />
+		                        <form:label path="name"><spring:message code="user.name" /></form:label>
+		                        <form:input path="name" placeholder="Name" class="form-control" />
 		                    </div>
 		                </div>
-		
+		 
 		                <div class="form-group">
 		                    <div class="col-sm-9">
-		                        <label th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}"
-		                               class="validation-message"></label>
-		                        <input type="text" th:field="*{lastName}"
-		                               placeholder="Last Name" class="form-control"/>
+		                        <form:errors path="lastName" class="validation-message" />
+		                        <form:label path="lastName"><spring:message code="user.lastName" /></form:label>
+		                        <form:input path="lastName" placeholder="Last Name" class="form-control" />
+		                    </div>
+		                </div>
+		                
+		                <div class="form-group">
+		                    <div class="col-sm-9">
+		                        <form:errors path="email" class="validation-message" />
+		                        <form:label path="email"><spring:message code="user.email" /></form:label>
+		                        <form:input path="email" placeholder="Email" class="form-control" />
 		                    </div>
 		                </div>
 		                <div class="form-group">
 		                    <div class="col-sm-9">
-		                        <input type="text" th:field="*{email}" placeholder="Email"
-		                               class="form-control"/> <label
-		                            th:if="${#fields.hasErrors('email')}" th:errors="*{email}"
-		                            class="validation-message"></label>
+		                        <form:errors path="password" class="validation-message" />
+		                        <form:label path="password"><spring:message code="user.password" /></form:label>
+		                        <form:input type="password" path="password" placeholder="Password" class="form-control" />
 		                    </div>
 		                </div>
-		                <div class="form-group">
-		                    <div class="col-sm-9">
-		                        <input type="password" th:field="*{password}"
-		                               placeholder="Password" class="form-control"/> <label
-		                            th:if="${#fields.hasErrors('password')}" th:errors="*{password}"
-		                            class="validation-message"></label>
-		                    </div>
-		                </div>
-		
+	
 		                <div class="form-group">
 		                    <div class="col-sm-9">
 		                        <button type="submit" class="btn btn-primary btn-block">Register User</button>
 		                    </div>
 		                </div>
 		
-		                <h2><span class="text-success" th:utext="${successMessage}"></span></h2>
-		
-		            </form>
+		            </form:form>
 		        </div>
 		    </div>
 		</div>
